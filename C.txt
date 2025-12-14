@@ -1,0 +1,5 @@
+What it does
+
+Takes your commits and replays them on top of another branch.
+
+Example
