@@ -1,0 +1,15 @@
+Your next step
+
+Try this once (safe playground):
+
+Create feature branch
+
+Make 2 commits
+
+Switch to main
+
+Make 1 commit
+
+Go back to feature
+
+Run:
