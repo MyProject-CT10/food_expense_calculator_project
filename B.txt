@@ -1,3 +1,0 @@
-Git merge combines branches by creating a merge commit and preserves history. Git rebase moves commits onto another branch to create a linear history but rewrites commit history.”
-
-That’s more than enough.
