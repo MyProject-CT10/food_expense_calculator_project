@@ -13,6 +13,22 @@
         url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip    
         dest: /tmp/frontend.zip
 
+    - name: Remove old nginx content
+      file: 
+        path: /usr/share/nginx/html
+        state: absent
+
+    - name: recreate nginx html directory
+      file:
+        path: /usr/share/nginx/html
+        state: directory
+
+    - name: Unzip the frontend content
+      unarchive:
+        src: /tmp/frontend.zip
+        dest: /usr/share/nginx/html
+        remote_src: yes
+
     - name: ensure nginx is running
       service:
         name: nginx
