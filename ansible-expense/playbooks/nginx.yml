@@ -23,6 +23,12 @@
         path: /usr/share/nginx/html
         state: directory
 
+    - name:  Install unzip package
+      apt:
+        name: unzip
+        state: present
+        update_cache: yes
+
     - name: Unzip the frontend content
       unarchive:
         src: /tmp/frontend.zip
