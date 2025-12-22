@@ -8,9 +8,14 @@
         state: present
         update_cache: yes
 
+    - name: Download the front content
+      get_url: 
+        url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip    
+        dest: /tmp/frontend.zip
+
     - name: ensure nginx is running
       service:
         name: nginx
         state: started
         enabled: yes     
-      
+    
