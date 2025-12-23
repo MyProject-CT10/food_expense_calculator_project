@@ -8,3 +8,15 @@
         name: unzip
         state: present
         update_cache: yes
+
+    - name: install nodejs
+      apt:
+        name: nodejs
+        state: present
+
+    - name: create expense application user
+      user:
+        name: expense
+        shell: /bin/bash
+        system: yes
+                
