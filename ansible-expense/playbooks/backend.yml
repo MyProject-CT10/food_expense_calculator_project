@@ -40,8 +40,15 @@
         owner: expense
         group: expense
 
-    - name: install backend application dependencies
-      npm:
+    - name: Install backend application dependencies
+      command: npm install
+      args:
+        chdir: /app
+    
+    - name: Fix ownership of application files
+      file:
         path: /app
-      become: yes
-      become_user: expense
+        state: directory
+        recurse: yes
+        owner: expense
+        group: expense
