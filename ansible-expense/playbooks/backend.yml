@@ -19,4 +19,29 @@
         name: expense
         shell: /bin/bash
         system: yes
-                
+        
+    - name: create application directory
+      file: 
+        path: /app
+        state: directory  
+        owner: expense
+        group: expense
+
+    - name: download backend application code
+      get_url:
+        url: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
+        dest: /tmp/backend.zip
+
+    - name: extract backend application code
+      unarchive:
+        src: /tmp/backend.zip
+        dest: /app
+        remote_src: yes  
+        owner: expense
+        group: expense
+
+    - name: install backend application dependencies
+      command: npm install
+      args:
+        chdir: /app
+      become_user: expense
