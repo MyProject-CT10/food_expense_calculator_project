@@ -1,0 +1,10 @@
+- name: prepare backend server
+  hosts: backend
+  become: yes
+
+  tasks:
+    - name: install unzip package
+      apt:
+        name: unzip
+        state: present
+        update_cache: yes
