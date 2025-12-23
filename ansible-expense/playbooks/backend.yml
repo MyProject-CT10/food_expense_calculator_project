@@ -44,4 +44,7 @@
       command: npm install
       args:
         chdir: /app
+      become: yes
       become_user: expense
+      environment: 
+        HOME: /home/expense
