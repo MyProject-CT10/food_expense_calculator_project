@@ -41,10 +41,7 @@
         group: expense
 
     - name: install backend application dependencies
-      command: npm install
-      args:
-        chdir: /app
+      npm:
+        path: /app
       become: yes
       become_user: expense
-      environment: 
-        HOME: /home/expense
