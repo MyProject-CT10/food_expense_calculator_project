@@ -14,6 +14,12 @@
         name: nodejs
         state: present
 
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+
+
     - name: create expense application user
       user:
         name: expense
