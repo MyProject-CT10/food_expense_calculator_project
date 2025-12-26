@@ -77,7 +77,7 @@
           wantedby= multi-user.target
 
     - name: reload systemd daemon
-      command: systemctl daemon-reexec
+      command: systemctl daemon-reload
 
     - name: enable and start backend service
       systemd:
