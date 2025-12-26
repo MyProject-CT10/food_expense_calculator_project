@@ -58,3 +58,29 @@
         recurse: yes
         owner: expense
         group: expense
+
+    - name: create systemd service for backend application
+      copy:
+        dest: /etc/systemd/system/backend.service
+        content: |
+          [unit]
+          description= expense backend service
+          after= network.target
+
+          [service]
+          user= expense
+          workingdirectory= /app
+          execstart= /usr/bin/node /app/index.js
+          restart= always
+
+          [install]
+          wantedby= multi-user.target
+
+    - name: reload systemd daemon
+      command: systemctl daemon-reexec
+
+    - name: enable and start backend service
+      systemd:
+        name: backend
+        enabled: yes
+        state: started
