@@ -63,18 +63,18 @@
       copy:
         dest: /etc/systemd/system/backend.service
         content: |
-          [unit]
-          description= expense backend service
-          after= network.target
+          [Unit]
+          Description= expense backend service
+          After= network.target
 
-          [service]
-          user= expense
-          workingdirectory= /app
-          execstart= /usr/bin/node /app/index.js
-          restart= always
+          [Service]
+          User= expense
+          WorkingDirectory= /app
+          ExecStart= /usr/bin/node /app/index.js
+          Restart= always
 
-          [install]
-          wantedby= multi-user.target
+          [Install]
+          WantedBy= multi-user.target
 
     - name: reload systemd daemon
       command: systemctl daemon-reload
